@@ -131,6 +131,8 @@ class VKBot:
                                     f'INSERT OR REPLACE INTO user_Sunday(vk_id, time , name_lesson, office) VALUES ({event.user_id},"{smsuser[4]}","{smsuser[5]}","{smsuser[6]}")')
                                 self.conn.commit()
                             self.send_message("Добавление прошло успешно", event.user_id)
+                        else:
+                            self.send_message("Неправельное время", event.user_id)
                     except ValueError:
                         self.send_message("Неверное время", event.user_id)
                 if len(smsuser) > 6 and smsuser[1] == "удали" and smsuser[2] == "предмет":
