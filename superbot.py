@@ -171,6 +171,8 @@ class VKBot:
                                     f'DELETE FROM user_Sunday WHERE vk_id = {event.user_id} AND time = "{smsuser[4]}"')
                                 self.conn.commit()
                             self.send_message("Удаление прошло успешно", event.user_id)
+                        else:
+                            self.send_message("Неправельное время", event.user_id)
                     except ValueError:
                         self.send_message("Неверное время", event.user_id)
 
